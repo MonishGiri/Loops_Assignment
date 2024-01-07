@@ -7,22 +7,20 @@ public class Question4 {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a String: ");
-        String s = sc.next().toLowerCase();
+        String str = sc.next().toLowerCase();
+        boolean isPalindrome = true;
 
-        int i=0, j=s.length()-1;
-
-        boolean result = false;
-
-        while(j>=0){
-            if(s.charAt(i) == s.charAt(j)){
-                result = true;
-                i++;
-                j--;
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
+                isPalindrome = false;
+                break;
             }
-            else break;
         }
-        System.out.println((result) ? s+" is Palindrome" : s+" Not Palindrome");
 
-        sc.close();
+        if (isPalindrome) {
+            System.out.println(str + " is a palindrome");
+        } else {
+            System.out.println(str + " is not a palindrome");
+        }
     }
 }
